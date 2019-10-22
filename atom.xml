@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mettiriolo.github.io/"/>
-  <updated>2019-10-22T13:56:08.843Z</updated>
+  <updated>2019-10-22T14:09:34.578Z</updated>
   <id>https://mettiriolo.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两数相加</title>
+    <link href="https://mettiriolo.github.io/2019/10/22/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
+    <id>https://mettiriolo.github.io/2019/10/22/两数相加/</id>
+    <published>2019-10-22T13:50:31.000Z</published>
+    <updated>2019-10-22T14:09:34.578Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<a id="more"></a> </p><p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p><p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p><strong>示例：</strong></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：(<span class="number">2</span> -&gt; <span class="number">4</span> -&gt; <span class="number">3</span>) + (<span class="number">5</span> -&gt; <span class="number">6</span> -&gt; <span class="number">4</span>)</span><br><span class="line">输出：<span class="number">7</span> -&gt; <span class="number">0</span> -&gt; <span class="number">8</span></span><br><span class="line">原因：<span class="number">342</span> + <span class="number">465</span> = <span class="number">807</span></span><br></pre></td></tr></table></figure><p>链接：<a href="https://leetcode-cn.com/problems/add-two-numbers" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-two-numbers</a></p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>思路：可以看做左边第一个数相加，&gt;10则向右进一；</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode temp=<span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode curr=temp;</span><br><span class="line">        <span class="keyword">int</span> carry=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l1!=<span class="keyword">null</span>||l2!=<span class="keyword">null</span>||carry!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> x=l1!=<span class="keyword">null</span>?l1.val:<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y=l2!=<span class="keyword">null</span>?l2.val:<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum=x+y+carry;</span><br><span class="line">            carry=sum/<span class="number">10</span>;</span><br><span class="line">            curr.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">            curr=curr.next;</span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="keyword">null</span>) l1=l1.next;</span><br><span class="line">            <span class="keyword">if</span>(l2!=<span class="keyword">null</span>) l2=l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            curr=<span class="keyword">new</span> ListNode(carry);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度<em>O(max(m,n))</em>，空间复杂度<em>O(max(m,n))</em>，m、n为两个链表的长度</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;p&gt;给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
+    
+    </summary>
+    
+    
+      <category term="Development" scheme="https://mettiriolo.github.io/categories/Development/"/>
+    
+      <category term="algorithm" scheme="https://mettiriolo.github.io/categories/Development/algorithm/"/>
+    
+    
+      <category term="leetcode" scheme="https://mettiriolo.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>两数之和</title>
@@ -42,43 +67,17 @@
   </entry>
   
   <entry>
-    <title>两数之和</title>
-    <link href="https://mettiriolo.github.io/2019/10/22/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/"/>
-    <id>https://mettiriolo.github.io/2019/10/22/两数相加/</id>
-    <published>2019-10-22T13:50:31.000Z</published>
-    <updated>2019-10-22T13:58:56.622Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。<a id="more"></a> </p><p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p><p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p><p><strong>示例：</strong></p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：(<span class="number">2</span> -&gt; <span class="number">4</span> -&gt; <span class="number">3</span>) + (<span class="number">5</span> -&gt; <span class="number">6</span> -&gt; <span class="number">4</span>)</span><br><span class="line">输出：<span class="number">7</span> -&gt; <span class="number">0</span> -&gt; <span class="number">8</span></span><br><span class="line">原因：<span class="number">342</span> + <span class="number">465</span> = <span class="number">807</span></span><br></pre></td></tr></table></figure><p>链接：<a href="https://leetcode-cn.com/problems/add-two-numbers" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-two-numbers</a></p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>思路：可以看做左边第一个数相加，&gt;10则向右进一；</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode temp=<span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode curr=temp;</span><br><span class="line">        <span class="keyword">int</span> carry=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l1!=<span class="keyword">null</span>||l2!=<span class="keyword">null</span>||carry!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> x=l1!=<span class="keyword">null</span>?l1.val:<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> y=l2!=<span class="keyword">null</span>?l2.val:<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum=x+y+carry;</span><br><span class="line">            carry=sum/<span class="number">10</span>;</span><br><span class="line">            curr.next=<span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">            curr=curr.next;</span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="keyword">null</span>) l1=l1.next;</span><br><span class="line">            <span class="keyword">if</span>(l2!=<span class="keyword">null</span>) l2=l2.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            curr=<span class="keyword">new</span> ListNode(carry);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度<em>O(max(m,n))</em>，空间复杂度<em>O(max(m,n))</em>，m、n为两个链表的长度</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;p&gt;给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
-    
-    </summary>
-    
-    
-      <category term="Development" scheme="https://mettiriolo.github.io/categories/Development/"/>
-    
-      <category term="algorithm" scheme="https://mettiriolo.github.io/categories/Development/algorithm/"/>
-    
-    
-      <category term="leetcode" scheme="https://mettiriolo.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>决心</title>
     <link href="https://mettiriolo.github.io/2019/10/21/%E4%B8%8B%E5%86%B3%E5%BF%83/"/>
     <id>https://mettiriolo.github.io/2019/10/21/下决心/</id>
     <published>2019-10-21T01:37:04.000Z</published>
-    <updated>2019-10-22T06:19:55.877Z</updated>
+    <updated>2019-10-22T14:10:48.922Z</updated>
     
-    <content type="html"><![CDATA[<p>有一个游戏打得好的朋友问我，我现在学习成绩也不行，又没有别的特长，去做职业选手怎么样，又能打游戏又能赚钱养活自己？我不置可否，因为他能问我，说明他自己也觉得不靠谱。</p><p>为什么要下决心呢？下了决心，就不能轻易反悔，就要坚定不移的，为一个目标努力。<a id="more"></a> 实际上只要这个目标有足够的吸引力，还是可以轻易下定决心的。 有一个叫”期望强度”的心理学概念，指的是人们在实现自己期望达成预定目标的过程中， 面对各种付出和挑战所能承受的心理限度，或者说期望的牢固程度。如果一个人的期望强度太脆弱，将无法面对残酷的现实或自身的缺点的挑战而半途而废。只有那些一定要成功的人，他们因有足够牢固的期望强度，所以能排除万难，坚持到底，永不放弃，直到成功。也就是说，期望强度越大，下定决心就越容易。</p><p>有一位年轻人，想向大哲学家苏格拉底求学。有一天，苏格拉底将他带到一条小河边，“扑通”一下，苏格拉底就跳到河里去了。年轻人一脸迷茫：难道大师要教我游泳？看到大师在向自己招手，年轻人也就稀里糊涂跳进河里。没想到，当他一跳下来，苏格拉底立即用力将他的脑袋按进水里。年轻人用力挣扎，刚一出水面，苏格拉底再次用更大的力将他的脑袋按进水里。年轻人拼命挣扎，刚一出水面，还来不及喘气，没想到苏格拉底第三次死死地将他的脑袋按进水里……年轻人本能地用尽全身力气再次拼命挣扎出来，他本能地拼命往岸上跑，爬上了岸，他指着还在水里的苏格拉底说：“大，大师，你到底想干什么？”没想到苏格拉底理都没理他，爬上岸像没事一样就走了。年轻人追上苏格拉底，虔诚地说：“大师，恕我愚昧，刚才的一切我还未明白，请指点一二。”此时苏格拉底似乎觉得年轻人尚有教的可能性，于是站定下来，对他讲了一句著名的话：“年轻人，如果你想向我学知识的话，你就必须有强烈的求知欲望，就像你有强烈的求生欲望一样。”能不能下定决心来‎‎源于你是‎想要‎，还‎是一‎定要‎。如‎果仅‎仅是‎想要‎，可‎能我‎们‎就会犹豫不决，踌躇不前。‎如果‎是一‎定要‎，那‎就会果断地作出决定。‎1‎00%的意‎愿，‎决定‎我‎们有‎100%‎的信心，‎‎决定我们对此的决心。‎10‎0‎%的意愿‎，决‎定我‎‎们一定会‎采取‎10‎0‎%的行动‎，因‎为第‎九十‎九步‎放弃‎，恰‎恰反‎证我‎们仅‎仅是‎‎想要，我‎不是‎一定‎要，‎即不‎是真‎正的‎10‎0%‎的愿意‎。‎100‎%的意‎‎愿，10‎0%‎的‎期望强度‎，就有100%的信心，100%的决心。</p><p>当不能下定决心的时候，就要问自己，这一切真的是我想要的吗？如果心理上已经感到不安，那么这种决心放弃也罢。与其怀着矛盾的心理勉强自己去下定决心，还不如分清轻重缓急，该干什么干什么。毕竟下决心不是做决定，只是一个过渡。</p>]]></content>
+    <content type="html"><![CDATA[<p>有一个游戏打得好的朋友问我，我现在学习成绩也不行，又没有别的特长，去做职业选手怎么样，又能打游戏又能赚钱养活自己？我不置可否，因为他能问我，说明他自己也觉得不靠谱。<a id="more"></a> </p><p>为什么要下决心呢？下了决心，就不能轻易反悔，就要坚定不移的，为一个目标努力。实际上只要这个目标有足够的吸引力，还是可以轻易下定决心的。 有一个叫”期望强度”的心理学概念，指的是人们在实现自己期望达成预定目标的过程中， 面对各种付出和挑战所能承受的心理限度，或者说期望的牢固程度。如果一个人的期望强度太脆弱，将无法面对残酷的现实或自身的缺点的挑战而半途而废。只有那些一定要成功的人，他们因有足够牢固的期望强度，所以能排除万难，坚持到底，永不放弃，直到成功。也就是说，期望强度越大，下定决心就越容易。</p><p>有一位年轻人，想向大哲学家苏格拉底求学。有一天，苏格拉底将他带到一条小河边，“扑通”一下，苏格拉底就跳到河里去了。年轻人一脸迷茫：难道大师要教我游泳？看到大师在向自己招手，年轻人也就稀里糊涂跳进河里。没想到，当他一跳下来，苏格拉底立即用力将他的脑袋按进水里。年轻人用力挣扎，刚一出水面，苏格拉底再次用更大的力将他的脑袋按进水里。年轻人拼命挣扎，刚一出水面，还来不及喘气，没想到苏格拉底第三次死死地将他的脑袋按进水里……年轻人本能地用尽全身力气再次拼命挣扎出来，他本能地拼命往岸上跑，爬上了岸，他指着还在水里的苏格拉底说：“大，大师，你到底想干什么？”没想到苏格拉底理都没理他，爬上岸像没事一样就走了。年轻人追上苏格拉底，虔诚地说：“大师，恕我愚昧，刚才的一切我还未明白，请指点一二。”此时苏格拉底似乎觉得年轻人尚有教的可能性，于是站定下来，对他讲了一句著名的话：“年轻人，如果你想向我学知识的话，你就必须有强烈的求知欲望，就像你有强烈的求生欲望一样。”能不能下定决心来‎‎源于你是‎想要‎，还‎是一‎定要‎。如‎果仅‎仅是‎想要‎，可‎能我‎们‎就会犹豫不决，踌躇不前。‎如果‎是一‎定要‎，那‎就会果断地作出决定。‎1‎00%的意‎愿，‎决定‎我‎们有‎100%‎的信心，‎‎决定我们对此的决心。‎10‎0‎%的意愿‎，决‎定我‎‎们一定会‎采取‎10‎0‎%的行动‎，因‎为第‎九十‎九步‎放弃‎，恰‎恰反‎证我‎们仅‎仅是‎‎想要，我‎不是‎一定‎要，‎即不‎是真‎正的‎10‎0%‎的愿意‎。‎100‎%的意‎‎愿，10‎0%‎的‎期望强度‎，就有100%的信心，100%的决心。</p><p>当不能下定决心的时候，就要问自己，这一切真的是我想要的吗？如果心理上已经感到不安，那么这种决心放弃也罢。与其怀着矛盾的心理勉强自己去下定决心，还不如分清轻重缓急，该干什么干什么。毕竟下决心不是做决定，只是一个过渡。</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;有一个游戏打得好的朋友问我，我现在学习成绩也不行，又没有别的特长，去做职业选手怎么样，又能打游戏又能赚钱养活自己？我不置可否，因为他能问我，说明他自己也觉得不靠谱。&lt;/p&gt;
-&lt;p&gt;为什么要下决心呢？下了决心，就不能轻易反悔，就要坚定不移的，为一个目标努力。
+      &lt;p&gt;有一个游戏打得好的朋友问我，我现在学习成绩也不行，又没有别的特长，去做职业选手怎么样，又能打游戏又能赚钱养活自己？我不置可否，因为他能问我，说明他自己也觉得不靠谱。
     
     </summary>
     
